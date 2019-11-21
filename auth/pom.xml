@@ -10,23 +10,16 @@
 		<relativePath>../</relativePath>
 	</parent>
 	
-	<artifactId>gateway</artifactId>
+	<artifactId>auth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gateway</name>
-	<description>Project gateway for Spring Boot</description>
+	<name>auth</name>
+	<description>Project auth for Spring Boot</description>
 
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
-	
-	 	<dependency>
-			<groupId>com.klayrocha</groupId>
-			<artifactId>token</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		
 		<dependency>
 			<groupId>com.klayrocha</groupId>
 			<artifactId>core</artifactId>
@@ -34,13 +27,25 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+			<groupId>com.klayrocha</groupId>
+			<artifactId>token</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>discovery</finalName>
+		<finalName>task</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -60,5 +65,6 @@
 			</plugin>
 		</plugins>
 	</build>
+
 
 </project>

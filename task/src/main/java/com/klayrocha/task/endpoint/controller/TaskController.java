@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.klayrocha.core.model.Task;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,11 +20,13 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("v1/admin/task")
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@Api(value = "Endpoints to manage task")
 public class TaskController {
 	
 	private final TaskService taskService;
 	
 	@GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ApiOperation(value = "List all available task", response = Task[].class)
 	public ResponseEntity<Iterable<Task>> list(Pageable pageable) {
 		log.info("Controller Listing all tasks");
 		return new ResponseEntity<>(taskService.list(pageable), HttpStatus.OK);
